@@ -17,7 +17,7 @@ const Index = () => {
         <div>
           {datos.length ? (
             datos.map((dato) => {
-              return <Cliente dato={dato} />;
+              return <Cliente dato={dato} key={dato.id} />;
             })
           ) : (
             <div className="w-full text-center mt-20">
