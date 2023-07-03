@@ -11,7 +11,7 @@ const Formulario = ({ cliente }) => {
           className="mt-2 block w-full p-3 bg-gray-100"
           placeholder="Nombre del Cliente"
           name="nombre"
-          value={cliente?.nombre || ""}
+          defaultValue={cliente?.nombre}
         />
       </div>
       <div className="mb-4">
@@ -24,7 +24,7 @@ const Formulario = ({ cliente }) => {
           className="mt-2 block w-full p-3 bg-gray-100"
           placeholder="Empresa del Cliente"
           name="empresa"
-          value={cliente?.empresa || ""}
+          defaultValue={cliente?.empresa}
         />
       </div>
 
@@ -38,7 +38,7 @@ const Formulario = ({ cliente }) => {
           className="mt-2 block w-full p-3 bg-gray-100"
           placeholder="Email del Cliente"
           name="email"
-          value={cliente?.email || ""}
+          defaultValue={cliente?.email}
         />
       </div>
 
@@ -52,7 +52,7 @@ const Formulario = ({ cliente }) => {
           className="mt-2 block w-full p-3 bg-gray-100"
           placeholder="Teléfono del Cliente"
           name="telefono"
-          value={cliente?.telefono || ""}
+          defaultValue={cliente?.telefono}
         />
       </div>
 

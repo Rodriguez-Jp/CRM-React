@@ -21,6 +21,34 @@ export async function agregarCliente(cliente) {
     });
 
     const resultado = await response.json();
+    console.log("Sucess", resultado);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function editarCliente(cliente, id) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(cliente),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const resultado = await response.json();
+    console.log(resultado);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function eliminarCliente(id) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+    });
+
+    const resultado = await response.json();
     console.log(resultado);
   } catch (error) {
     console.log(error);

@@ -9,7 +9,9 @@ import NuevoCliente, {
 import Index, { loader as clientesLoader } from "./pages/Index";
 import EditarCliente, {
   loader as editarClienteLoader,
+  action as editarClienteAction,
 } from "./pages/EditarCliente";
+import { action as eliminarClienteAction } from "./components/Cliente";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,12 @@ const router = createBrowserRouter([
         path: "/editar/cliente/:clienteId",
         element: <EditarCliente />,
         loader: editarClienteLoader,
+        action: editarClienteAction,
+      },
+
+      {
+        path: "/eliminar/:clienteId",
+        action: eliminarClienteAction,
       },
     ],
   },

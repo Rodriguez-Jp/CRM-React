@@ -1,6 +1,7 @@
-import { obtenerCliente } from "../data/clientes";
+import { editarCliente, obtenerCliente } from "../data/clientes";
 import Formulario from "../components/Formulario";
-import { useLoaderData, Form } from "react-router-dom";
+import Error from "../components/Error";
+import { useLoaderData, useActionData, Form, redirect } from "react-router-dom";
 
 export async function loader({ params }) {
   const { clienteId } = params;
@@ -10,8 +11,37 @@ export async function loader({ params }) {
   return cliente;
 }
 
+export async function action({ request, params }) {
+  const formData = await request.formData();
+
+  const formObject = Object.fromEntries(formData);
+
+  const errores = [];
+
+  //Validacion general
+  if (Object.values(formObject).includes("")) {
+    errores.push("Todos los campos son obligatorios");
+  }
+
+  //Validacion email
+  const email = formData.get("email");
+  let regex = new RegExp(
+    "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
+  );
+
+  if (!regex.test(email)) errores.push("Email no valido");
+
+  if (Object.keys(errores).length) return errores;
+
+  await editarCliente(formObject, params.clienteId);
+  return redirect("/");
+}
+
 const EditarCliente = () => {
   const cliente = useLoaderData();
+  const errores = useActionData();
+
+  console.log(errores);
 
   return (
     <>
@@ -21,10 +51,10 @@ const EditarCliente = () => {
       </section>
       <section>
         <div className="bg-white shadow-lg rounded-lg w-3/4 mx-auto p-10 mt-10">
-          {/* {errores?.length &&
+          {errores?.length &&
             errores.map((error, i) => {
               return <Error error={error} key={i} />;
-            })} */}
+            })}
           <Form method="post">
             <Formulario cliente={cliente} />
             <input
