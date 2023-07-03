@@ -6,6 +6,12 @@ export async function obtenerClientes() {
   return clientes;
 }
 
+export async function obtenerCliente(id) {
+  const query = await fetch(`${API_URL}/${id}`);
+  const cliente = await query.json();
+  return cliente;
+}
+
 export async function agregarCliente(cliente) {
   try {
     const response = await fetch(API_URL, {

@@ -7,6 +7,9 @@ import NuevoCliente, {
   action as nuevoClienteAction,
 } from "./pages/NuevoCliente";
 import Index, { loader as clientesLoader } from "./pages/Index";
+import EditarCliente, {
+  loader as editarClienteLoader,
+} from "./pages/EditarCliente";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,11 @@ const router = createBrowserRouter([
         path: "/nuevo/cliente",
         element: <NuevoCliente />,
         action: nuevoClienteAction,
+      },
+      {
+        path: "/editar/cliente/:clienteId",
+        element: <EditarCliente />,
+        loader: editarClienteLoader,
       },
     ],
   },

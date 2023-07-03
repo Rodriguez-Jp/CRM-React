@@ -25,7 +25,7 @@ export async function action({ request }) {
 
   if (Object.keys(errores).length) return errores;
 
-  //console.log(JSON.stringify(formObject));
+
   await agregarCliente(formObject);
   return redirect("/");
 }

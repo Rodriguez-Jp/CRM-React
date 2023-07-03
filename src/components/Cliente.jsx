@@ -1,7 +1,10 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cliente = ({ dato }) => {
+  const navigate = useNavigate();
+
   const { nombre, telefono, email, empresa, id } = dato;
+
   return (
     <div
       key={id}
@@ -25,7 +28,12 @@ const Cliente = ({ dato }) => {
         <button className="block p-1 w-[40%] bg-amber-500 text-center text-white font-bold">
           Ver
         </button>
-        <button className="block p-1 w-[40%] mt-2 bg-indigo-500 text-center text-white font-bold">
+        <button
+          className="block p-1 w-[40%] mt-2 bg-indigo-500 text-center text-white font-bold"
+          onClick={() => {
+            navigate(`/editar/cliente/${id}`);
+          }}
+        >
           Editar
         </button>
         <button className="block p-1 w-[40%] mt-2 bg-red-500 text-center text-white font-bold">
