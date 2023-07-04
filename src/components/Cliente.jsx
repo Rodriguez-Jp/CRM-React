@@ -9,7 +9,7 @@ export async function action({ params }) {
 const Cliente = ({ dato }) => {
   const navigate = useNavigate();
 
-  const { nombre, telefono, email, empresa, id } = dato;
+  const { nombre, telefono, email, empresa, id, notas } = dato;
 
   return (
     <div
@@ -29,11 +29,11 @@ const Cliente = ({ dato }) => {
         <p className="mt-2 font-bold">
           Empresa: <span className="font-normal text-black">{empresa}</span>
         </p>
+        <p className="mt-2 font-bold">
+          Notas: <span className="font-normal text-black">{notas}</span>
+        </p>
       </div>
       <div className="p-5 w-[40%] items-end flex flex-col">
-        <button className="block p-1 w-[40%] bg-amber-500 text-center text-white font-bold">
-          Ver
-        </button>
         <button
           className="block p-1 w-[40%] mt-2 bg-indigo-500 text-center text-white font-bold"
           onClick={() => {

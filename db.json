@@ -1,25 +1,11 @@
 {
   "clientes": [
     {
-      "id": 4,
-      "nombre": "Miguel",
-      "telefono": 319381983,
-      "email": "miguel@juan.com",
-      "empresa": "Codigo Con Juan"
-    },
-    {
-      "id": 5,
-      "nombre": "Pedro",
-      "telefono": 1398198938,
-      "email": "pedro@juan.com",
-      "empresa": "Codigo Con Juan"
-    },
-    {
       "nombre": "Juan",
       "empresa": "Empresa1",
       "email": "Juan2@correo.com",
       "telefono": "12312",
-      "notas": "asfdsfdasf",
+      "notas": "Notas seria",
       "id": 6
     },
     {
@@ -29,6 +15,22 @@
       "telefono": "3234",
       "notas": "Hola soy pepo",
       "id": 7
+    },
+    {
+      "nombre": "Pedro",
+      "empresa": "Pedrito el mas lindo",
+      "email": "pedrito@pedro.com",
+      "telefono": "4128312",
+      "notas": "Por favor reservenme 4 sillas\n",
+      "id": 8
+    },
+    {
+      "nombre": "Juan Nuevo cliente",
+      "empresa": "CarrosYa",
+      "email": "Juan2@correo.com",
+      "telefono": "8383883",
+      "notas": "Por favor requiero 4 carros ",
+      "id": 9
     }
   ]
 }

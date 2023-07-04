@@ -41,8 +41,6 @@ const EditarCliente = () => {
   const cliente = useLoaderData();
   const errores = useActionData();
 
-  console.log(errores);
-
   return (
     <>
       <section>

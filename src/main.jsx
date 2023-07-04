@@ -12,6 +12,7 @@ import EditarCliente, {
   action as editarClienteAction,
 } from "./pages/EditarCliente";
 import { action as eliminarClienteAction } from "./components/Cliente";
+import VistaCliente from "./pages/VistaCliente";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/eliminar/:clienteId",
         action: eliminarClienteAction,
+      },
+      {
+        path: "/cliente/:clienteId",
+        element: <VistaCliente />,
       },
     ],
   },

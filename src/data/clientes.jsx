@@ -19,9 +19,6 @@ export async function agregarCliente(cliente) {
       body: JSON.stringify(cliente),
       headers: { "Content-Type": "application/json" },
     });
-
-    const resultado = await response.json();
-    console.log("Sucess", resultado);
   } catch (error) {
     console.log(error);
   }
@@ -34,9 +31,6 @@ export async function editarCliente(cliente, id) {
       body: JSON.stringify(cliente),
       headers: { "Content-Type": "application/json" },
     });
-
-    const resultado = await response.json();
-    console.log(resultado);
   } catch (error) {
     console.log(error);
   }
@@ -47,9 +41,6 @@ export async function eliminarCliente(id) {
     const response = await fetch(`${API_URL}/${id}`, {
       method: "DELETE",
     });
-
-    const resultado = await response.json();
-    console.log(resultado);
   } catch (error) {
     console.log(error);
   }
